@@ -1,4 +1,4 @@
-package app.alextran.immich
+package app.alextran.immich2
 
 import android.content.Context
 import android.util.Log

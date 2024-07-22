@@ -1,4 +1,4 @@
-package app.alextran.immich
+package app.alextran.immich2
 
 import android.app.Notification
 import android.app.NotificationChannel

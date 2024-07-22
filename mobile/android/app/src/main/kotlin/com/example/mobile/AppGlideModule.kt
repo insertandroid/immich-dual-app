@@ -1,4 +1,4 @@
-package app.alextran.immich
+package app.alextran.immich2
 
 import com.bumptech.glide.annotation.GlideModule
 import com.bumptech.glide.module.AppGlideModule

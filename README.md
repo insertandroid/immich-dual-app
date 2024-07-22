@@ -1,3 +1,15 @@
+# Build Dual App
+
+```bash
+NIXPKGS_ACCEPT_ANDROID_SDK_LICENSE=1 nix-shell -p androidenv.androidPkgs_9_0.androidsdk --run nix-shell
+cd mobile
+echo $KEY_JKS | base64 -d > android/key.jks
+flutter pub get
+flutter build apk --release
+```
+
+---
+
 <p align="center"> 
   <br/>  
   <a href="https://opensource.org/license/agpl-v3"><img src="https://img.shields.io/badge/License-AGPL_v3-blue.svg?color=3F51B5&style=for-the-badge&label=License&logoColor=000000&labelColor=ececec" alt="License: AGPLv3"></a>

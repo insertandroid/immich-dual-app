@@ -1,4 +1,4 @@
-package app.alextran.immich
+package app.alextran.immich2
 
 import android.content.Context
 import android.os.SystemClock
@@ -16,7 +16,7 @@ import java.util.concurrent.TimeUnit
 /**
  * Worker executed by Android WorkManager observing content changes (new photos/videos)
  *
- * Immediately enqueues the BackupWorker when running. 
+ * Immediately enqueues the BackupWorker when running.
  * As this work is not triggered periodically, but on content change, the
  * worker enqueues itself again after each run.
  */
@@ -44,7 +44,7 @@ class ContentObserverWorker(ctx: Context, params: WorkerParameters) : Worker(ctx
 
         /**
          * Enqueues the `ContentObserverWorker`.
-         * 
+         *
          * @param context Android Context
          */
         fun enable(context: Context, immediate: Boolean = false) {
@@ -57,7 +57,7 @@ class ContentObserverWorker(ctx: Context, params: WorkerParameters) : Worker(ctx
 
         /**
          * Configures the `BackupWorker` to run when all constraints are met.
-         * 
+         *
          * @param context Android Context
          * @param requireWifi if true, task only runs if connected to wifi
          * @param requireCharging if true, task only runs if device is charging
@@ -121,7 +121,7 @@ class ContentObserverWorker(ctx: Context, params: WorkerParameters) : Worker(ctx
                 .setTriggerContentUpdateDelay(sp.getLong(SHARED_PREF_TRIGGER_UPDATE_DELAY, 5000), TimeUnit.MILLISECONDS)
                 .setTriggerContentMaxDelay(sp.getLong(SHARED_PREF_TRIGGER_MAX_DELAY, 50000), TimeUnit.MILLISECONDS)
                 .build()
-                
+
             val work = OneTimeWorkRequest.Builder(ContentObserverWorker::class.java)
                 .setConstraints(constraints)
                 .build()

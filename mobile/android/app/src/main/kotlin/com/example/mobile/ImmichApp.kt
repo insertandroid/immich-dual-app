@@ -1,4 +1,4 @@
-package app.alextran.immich
+package app.alextran.immich2
 
 import android.app.Application
 import androidx.work.Configuration
