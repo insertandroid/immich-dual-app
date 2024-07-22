@@ -1,9 +1,11 @@
 # Build Dual App
 
 ```bash
+# if nix
 NIXPKGS_ACCEPT_ANDROID_SDK_LICENSE=1 nix-shell -p androidenv.androidPkgs_9_0.androidsdk --run nix-shell
+
+# otherwise cont.
 cd mobile
-echo $KEY_JKS | base64 -d > android/key.jks
 flutter pub get
 flutter build apk --release
 ```
