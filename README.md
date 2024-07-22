@@ -4,6 +4,21 @@
 # if nix
 NIXPKGS_ACCEPT_ANDROID_SDK_LICENSE=1 nix-shell -p androidenv.androidPkgs_9_0.androidsdk --run nix-shell
 
+# create key store (use password `password`)
+keytool -genkey -v -keystore android\key.jks `
+        -storetype JKS -keyalg RSA -keysize 2048 -validity 10000 `
+        -alias upload
+
+# ... bash
+export ANDROID_STORE_PASSWORD=password
+export ANDROID_KEY_PASSWORD=password
+# ... powershell
+set ANDROID_STORE_PASSWORD=password
+set ANDROID_KEY_PASSWORD=password
+# ... fish
+set ANDROID_STORE_PASSWORD password
+set ANDROID_KEY_PASSWORD password
+
 # otherwise cont.
 cd mobile
 flutter pub get
