@@ -12,17 +12,20 @@ keytool -genkey -v -keystore android\key.jks `
 # ... bash
 export ANDROID_STORE_PASSWORD=password
 export ANDROID_KEY_PASSWORD=password
+export ALIAS=upload
 # ... powershell
-set ANDROID_STORE_PASSWORD=password
-set ANDROID_KEY_PASSWORD=password
+New-Item -Path Env:\ANDROID_STORE_PASSWORD -Value 'password'
+New-Item -Path Env:\ANDROID_KEY_PASSWORD -Value 'password'
+New-Item -Path Env:\ALIAS -Value 'upload'
 # ... fish
-set ANDROID_STORE_PASSWORD password
-set ANDROID_KEY_PASSWORD password
+set -x ANDROID_STORE_PASSWORD password
+set -x ANDROID_KEY_PASSWORD password
+set -x ALIAS upload
 
 # otherwise cont.
 cd mobile
 flutter pub get
-flutter build apk --release
+flutter build apk --release --split-per-abi --target-platform android-arm,android-arm64,android-x64
 ```
 
 ---
